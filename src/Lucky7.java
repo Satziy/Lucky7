@@ -8,15 +8,21 @@ class Lucky7 {
 	Random random = new Random();
 
 	int luckyNumber = 7;
-	int alkuRaha = 5;
-	int summaNyt =alkuRaha;
+	int alkuRaha = 0;
+	String pelaajanRahasumma;
 	String vastaus;
 	
 	//Pahoittelut finglish -sekoituksesta :D
-	//Peliohjeet
-	System.out.println("Lucky7\nPeliohjeet: Sinulla on alussa 5€ rahaa. Joka peli maksaa 1€. "
-	+"Jos yksi arvotuista numeroista on seitsemän, voitat 3€.\nJos kaksi numeroa on seitsemän, voitat 5€. Jos kolme numeroa on oikein, voitat 7€.\nPeli loppuu kun rahat loppuvat.\n ");
 	
+	//Peliohjeet
+	System.out.println("Lucky7\nPeliohjeet: Syötä aluksi haluamasi rahasumma. Peli arpoo sinulle kolme numeroa väliltä 1-10.\nYksi peli maksaa 1€. "
+	+"Jos yksi arvotuista numeroista on seitsemän, voitat 3€.\nJos kaksi numeroa on seitsemän, voitat 5€. Jos kolme arvotuista numeroista on seitsemän, voitat 7€.\nPeli loppuu kun rahat loppuvat.\n ");
+	
+	//Kehoitetaan pelaajaa syöttämään haluamansa rahasumma
+	System.out.println("Syötä haluamasi rahasumma numeroina (€) ja paina Enter, niin peli alkaa:");
+	pelaajanRahasumma = in.nextLine(); 
+	System.out.println("-------------");
+	int summaNyt =alkuRaha + Integer.parseInt(pelaajanRahasumma);
 	
 	//looppi alkaa
 	
@@ -31,15 +37,15 @@ do {
 		
 	 	if (randomNumber == luckyNumber && randomNumber2 == luckyNumber && randomNumber3 ==luckyNumber)
 	  		{System.out.println("Onnea! Voitit 7 €");
-	 		summaNyt = summaNyt +7; }
+	 		summaNyt = summaNyt -1 +7; }
 	 
 	 	else if (randomNumber == luckyNumber && randomNumber2 == luckyNumber || randomNumber2 == luckyNumber && randomNumber3==luckyNumber || randomNumber ==luckyNumber && randomNumber3 == luckyNumber)
 		 	{System.out.println("Onnea! Voitit 5€."); 
-	 		summaNyt = summaNyt + 5;}
+	 		summaNyt = summaNyt -1 + 5;}
 	 
 	 	else if (randomNumber == luckyNumber || randomNumber2 == luckyNumber || randomNumber3 == luckyNumber)
 	  		{System.out.println ("Onnea! Voitit 3€."); 
-	 		summaNyt = summaNyt +3; }
+	 		summaNyt = summaNyt -1 +3; }
 	 	
 		else 
 	  		{System.out.println("Hävisit.");
@@ -51,6 +57,7 @@ do {
 	 	   
 	 	   	System.out.println("Haluatko jatkaa peliä? Vastaa k/e ja paina Enter.");
 	 	   	vastaus = in.nextLine();
+	 	   	System.out.println("---------");
 	 	   
 	 	 if (vastaus.equals("e") || summaNyt ==0)
 	 	     {System.out.println("Peli loppui.");
