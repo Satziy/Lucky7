@@ -10,7 +10,7 @@ class Lucky7 {
 	int randomNumber = random.nextInt(10);
 	int randomNumber2 = random.nextInt(10);
 	int randomNumber3 = random.nextInt(10);
-	int[] numbers = {randomNumber, randomNumber2, randomNumber3};
+//	int[] numbers = {randomNumber, randomNumber2, randomNumber3};
 	int luckyNumber = 7;
 	
 	System.out.println("Numerosi ovat " + randomNumber +"," + randomNumber2 + (",") + randomNumber3);
